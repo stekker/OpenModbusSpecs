@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "schema_version": 1,
-  "updated_at": "2025-11-28T00:00:00Z",
+  "version": "0.1.0",
+  "schema_version": "0.1",
+  "updated_at": "2025-11-28T15:05:25.123795+00:00",
   "description": "OpenModbus Device Registry - Stable device profiles",
   "devices": {
     "alfen_ng9xx": {
@@ -12,7 +12,7 @@
       "path": "registry/stable/alfen/ng9xx.yaml",
       "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/alfen/ng9xx.yaml",
       "stability": "stable",
-      "version": "1.0.0"
+      "version": "0.1.0"
     },
     "janitza_umg604": {
       "manufacturer": "Janitza",
@@ -22,7 +22,7 @@
       "path": "registry/stable/janitza/umg604.yaml",
       "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/janitza/umg604.yaml",
       "stability": "stable",
-      "version": "1.0.0"
+      "version": "0.1.0"
     },
     "landis_gyr_e450": {
       "manufacturer": "Landis+Gyr",
@@ -32,7 +32,7 @@
       "path": "registry/stable/landis_gyr/e450.yaml",
       "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/landis_gyr/e450.yaml",
       "stability": "stable",
-      "version": "1.0.0"
+      "version": "0.1.0"
     },
     "peblar_home": {
       "manufacturer": "Peblar",
@@ -42,7 +42,7 @@
       "path": "registry/stable/peblar/home.yaml",
       "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/peblar/home.yaml",
       "stability": "stable",
-      "version": "1.0.0"
+      "version": "0.1.0"
     },
     "victron_vm3p75ct": {
       "manufacturer": "Victron Energy",
@@ -52,7 +52,7 @@
       "path": "registry/stable/victron/vm3p75ct.yaml",
       "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/victron/vm3p75ct.yaml",
       "stability": "stable",
-      "version": "1.0.0"
+      "version": "0.1.0"
     }
   }
 }

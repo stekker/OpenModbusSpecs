@@ -1,4 +1,4 @@
-version: 1
+version: "0.1"
 
 device:
   id: alfen_ng9xx

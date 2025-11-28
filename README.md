@@ -42,7 +42,7 @@ Device profiles are written in YAML and describe:
 Example:
 
 ```yaml
-version: 1
+version: "0.1"
 
 device:
   id: example_device
@@ -112,9 +112,9 @@ python3 tools/validate.py
 
 ## Schema Version
 
-Current schema version: **v1**
+Current schema version: **v0.1** (pre-release)
 
-The schema uses semantic versioning and breaking changes will increment the major version.
+The schema uses semantic versioning. We're starting at v0.1 to gather community feedback before stabilizing to v1.0.
 
 ## License
 

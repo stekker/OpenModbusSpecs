@@ -28,7 +28,7 @@ Use lowercase with underscores. For example:
 Every device profile must include:
 
 ```yaml
-version: 1
+version: "0.1"
 
 device:
   id: unique_device_id          # Snake_case identifier

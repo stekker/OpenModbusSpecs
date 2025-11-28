@@ -40,7 +40,7 @@ def main():
 
     # Load schema
     repo_root = Path(__file__).parent.parent
-    schema_path = repo_root / "schema" / "v1" / "openmodbus-schema-v1.json"
+    schema_path = repo_root / "schema" / "v0.1" / "openmodbus-schema-v0.1.json"
     with open(schema_path) as f:
         schema = json.load(f)
 

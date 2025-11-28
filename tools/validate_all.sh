@@ -23,7 +23,7 @@ fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
-SCHEMA="$REPO_ROOT/schema/v1/openmodbus-schema-v1.json"
+SCHEMA="$REPO_ROOT/schema/v0.1/openmodbus-schema-v0.1.json"
 REGISTRY_DIR="$REPO_ROOT/registry"
 PASSED=0
 FAILED=0
