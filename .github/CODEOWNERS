@@ -1,0 +1,43 @@
+# OpenModbus Device Registry - Code Owners
+#
+# This file defines who is responsible for reviewing changes to specific files.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# === Core Infrastructure ===
+# Schema changes require core team approval
+/schema/**                              @erikdebruijn @stekker/openmodbus-core
+
+# Tools and CI/CD
+/tools/**                               @erikdebruijn @stekker/openmodbus-core
+/.github/**                             @erikdebruijn @stekker/openmodbus-core
+
+# Documentation
+/docs/**                                @erikdebruijn @stekker/openmodbus-core
+/README.md                              @erikdebruijn @stekker/openmodbus-core
+
+# === Device-Specific Maintainers ===
+# Each device profile is maintained by its designated maintainer(s)
+
+# Alfen devices
+/registry/stable/alfen/**               @erikdebruijn
+/registry/contrib/alfen_*.yaml          @erikdebruijn
+
+# Janitza devices
+/registry/stable/janitza/**             @erikdebruijn
+/registry/contrib/janitza_*.yaml        @erikdebruijn
+
+# Landis+Gyr devices
+/registry/stable/landis_gyr/**          @erikdebruijn
+/registry/contrib/landis_gyr_*.yaml     @erikdebruijn
+
+# Peblar devices
+/registry/stable/peblar/**              @erikdebruijn
+/registry/contrib/peblar_*.yaml         @erikdebruijn
+
+# Victron devices
+/registry/stable/victron/**             @erikdebruijn
+/registry/contrib/victron_*.yaml        @erikdebruijn
+
+# === Fallback ===
+# All other contrib submissions require core team review
+/registry/contrib/**                    @erikdebruijn @stekker/openmodbus-core

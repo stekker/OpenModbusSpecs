@@ -73,6 +73,41 @@
               }
             }
           }
+        },
+        "maintainers": {
+          "type": "array",
+          "description": "Maintainers responsible for this device profile",
+          "items": {
+            "type": "object",
+            "required": ["github"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Full name of maintainer"
+              },
+              "github": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$",
+                "description": "GitHub username"
+              },
+              "organization": {
+                "type": "string",
+                "description": "Organization or company"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "Contact email"
+              },
+              "role": {
+                "type": "string",
+                "enum": ["primary", "contributor", "emeritus"],
+                "default": "contributor",
+                "description": "Maintainer role"
+              }
+            }
+          }
         }
       }
     },

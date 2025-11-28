@@ -37,6 +37,12 @@ device:
   protocol: modbus_tcp          # or modbus_rtu, modbus_udp
   default_byte_order: ABCD      # ABCD, BADC, CDAB, DCBA, etc.
   default_register_type: holding # holding, input, coil, or discrete_input
+  maintainers:                  # You become the maintainer!
+    - name: Your Name
+      github: yourusername
+      organization: Your Company (optional)
+      email: you@example.com (optional)
+      role: primary
 
 registers:
   "0":                          # Register address (as string)
@@ -183,10 +189,22 @@ Aliases:
 3. **Field testing**: Ideally tested with real hardware
 4. **Promotion**: Once validated, moved to `registry/stable/`
 
+## Becoming a Maintainer
+
+When you contribute a device profile, you automatically become its maintainer! This means:
+
+- You'll be notified of PRs affecting your device (via GitHub CODEOWNERS)
+- You can review and approve changes to your device
+- Your name appears in the device profile and manifest
+- You help ensure quality for devices you know well
+
+See [MAINTAINERS.md](MAINTAINERS.md) for full details on the maintainer system.
+
 ## Questions?
 
 - Open an issue for questions about the schema
 - Join discussions for general questions
 - Check existing device profiles for examples
+- Contact maintainers: edb+openmodbus@stekker.com
 
 Thank you for contributing to the OpenModbus ecosystem!

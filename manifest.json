@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "schema_version": "0.1",
-  "updated_at": "2025-11-28T15:11:16.431282+00:00",
+  "updated_at": "2025-11-28T15:27:44.987841+00:00",
   "description": "OpenModbus Device Registry - Stable device profiles",
   "devices": {
     "alfen_ng9xx": {
@@ -9,50 +9,125 @@
       "model": "NG9xx",
       "description": "Alfen NG9xx EV Charger",
       "protocol": "modbus_tcp",
-      "path": "registry/stable/alfen/ng9xx.yaml",
-      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/alfen/ng9xx.yaml",
-      "stability": "stable",
-      "version": "0.1.0"
+      "versions": [
+        {
+          "version": "1.0.0",
+          "stability": "stable",
+          "path": "registry/stable/alfen/ng9xx.yaml",
+          "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/alfen/ng9xx.yaml",
+          "published_at": "2025-11-28T15:27:44.967803+00:00",
+          "maintainers": [
+            {
+              "github": "erikdebruijn",
+              "role": "primary"
+            }
+          ],
+          "has_active_maintainer": true
+        }
+      ],
+      "latest": {
+        "stable": "1.0.0"
+      }
     },
     "janitza_umg604": {
       "manufacturer": "Janitza",
       "model": "UMG604",
       "description": "Universal Measuring Device - Multi-functional power quality analyzer and energy meter",
       "protocol": "modbus_tcp",
-      "path": "registry/stable/janitza/umg604.yaml",
-      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/janitza/umg604.yaml",
-      "stability": "stable",
-      "version": "0.1.0"
+      "versions": [
+        {
+          "version": "1.0.0",
+          "stability": "stable",
+          "path": "registry/stable/janitza/umg604.yaml",
+          "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/janitza/umg604.yaml",
+          "published_at": "2025-11-28T15:27:44.971483+00:00",
+          "maintainers": [
+            {
+              "github": "erikdebruijn",
+              "role": "primary"
+            }
+          ],
+          "has_active_maintainer": true
+        }
+      ],
+      "latest": {
+        "stable": "1.0.0"
+      }
     },
     "landis_gyr_e450": {
       "manufacturer": "Landis+Gyr",
       "model": "E450",
       "description": "Landis+Gyr E450 three-phase energy meter",
       "protocol": "modbus_tcp",
-      "path": "registry/stable/landis_gyr/e450.yaml",
-      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/landis_gyr/e450.yaml",
-      "stability": "stable",
-      "version": "0.1.0"
+      "versions": [
+        {
+          "version": "1.0.0",
+          "stability": "stable",
+          "path": "registry/stable/landis_gyr/e450.yaml",
+          "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/landis_gyr/e450.yaml",
+          "published_at": "2025-11-28T15:27:44.977820+00:00",
+          "maintainers": [
+            {
+              "github": "erikdebruijn",
+              "role": "primary"
+            }
+          ],
+          "has_active_maintainer": true
+        }
+      ],
+      "latest": {
+        "stable": "1.0.0"
+      }
     },
     "peblar_home": {
       "manufacturer": "Peblar",
       "model": "Peblar Home",
       "description": "Peblar EV Charger",
       "protocol": "modbus_tcp",
-      "path": "registry/stable/peblar/home.yaml",
-      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/peblar/home.yaml",
-      "stability": "stable",
-      "version": "0.1.0"
+      "versions": [
+        {
+          "version": "1.0.0",
+          "stability": "stable",
+          "path": "registry/stable/peblar/home.yaml",
+          "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/peblar/home.yaml",
+          "published_at": "2025-11-28T15:27:44.981502+00:00",
+          "maintainers": [
+            {
+              "github": "erikdebruijn",
+              "role": "primary"
+            }
+          ],
+          "has_active_maintainer": true
+        }
+      ],
+      "latest": {
+        "stable": "1.0.0"
+      }
     },
     "victron_vm3p75ct": {
       "manufacturer": "Victron Energy",
       "model": "VM-3P75CT",
       "description": "Victron VM-3P75CT three-phase energy meter",
       "protocol": "modbus_udp",
-      "path": "registry/stable/victron/vm3p75ct.yaml",
-      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/victron/vm3p75ct.yaml",
-      "stability": "stable",
-      "version": "0.1.0"
+      "versions": [
+        {
+          "version": "1.0.0",
+          "stability": "stable",
+          "path": "registry/stable/victron/vm3p75ct.yaml",
+          "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/victron/vm3p75ct.yaml",
+          "published_at": "2025-11-28T15:27:44.987779+00:00",
+          "maintainers": [
+            {
+              "github": "erikdebruijn",
+              "role": "primary"
+            }
+          ],
+          "has_active_maintainer": true
+        }
+      ],
+      "latest": {
+        "stable": "1.0.0"
+      }
     }
   }
 }

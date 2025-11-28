@@ -89,12 +89,18 @@ Device profiles can be parsed to automatically:
 
 ## Contributing
 
-We welcome contributions of new device profiles! Please:
+We welcome contributions of new device profiles! When you contribute a device, you become its maintainer.
 
-1. Create a YAML file following the schema
+**Quick Start:**
+
+1. Create a YAML file following the schema (add yourself as maintainer)
 2. Validate it using `tools/validate.py`
 3. Submit a pull request adding your file to `registry/contrib/`
-4. Our team will review and promote it to `registry/stable/` once validated
+4. After review, it will be promoted to `registry/stable/`
+
+**Maintainer System:**
+
+Each device has designated maintainers who review changes and ensure quality. Contributors automatically become maintainers of devices they add. See [docs/MAINTAINERS.md](docs/MAINTAINERS.md) for details.
 
 See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines and [registry/contrib/README.md](registry/contrib/README.md) for the contribution workflow.
 

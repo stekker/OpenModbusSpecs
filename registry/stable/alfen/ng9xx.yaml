@@ -8,6 +8,12 @@ device:
   protocol: modbus_tcp
   default_byte_order: ABCD
   default_register_type: holding
+  maintainers:
+    - name: Erik de Bruijn
+      github: erikdebruijn
+      organization: Stekker
+      email: edb+openmodbus@stekker.com
+      role: primary
 
 registers:
   "344":
