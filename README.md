@@ -1,6 +1,26 @@
 # OpenModbus Device Registry
 
+**Status**: 🚧 Early stage - lightweight governance, PRs auto-merge if CI passes
+
 An open, machine-readable specification for Modbus device register maps. Think of it as "OpenAPI for Modbus" - a standardized way to describe Modbus device interfaces to eliminate the need for manually interpreting PDF datasheets.
+
+---
+
+## 🤝 Seeking Maintainers
+
+**This project needs active maintainers!** We welcome:
+
+- **Device manufacturers** - Take authoritative ownership of your product profiles
+- **Integration developers** - Maintain profiles for devices you regularly work with
+- **Community contributors** - Submit 3+ quality device profiles and become a co-maintainer
+
+When you contribute a device, you can claim maintainer role by adding yourself to the YAML file. Manufacturers are especially encouraged to take over profiles for their products to ensure accuracy.
+
+**Current status**: All existing devices have emeritus maintainers (project founders who've stepped back to let the community lead).
+
+See [docs/MAINTAINERS.md](docs/MAINTAINERS.md) to learn more.
+
+---
 
 ## Overview
 

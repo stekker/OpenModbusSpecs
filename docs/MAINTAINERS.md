@@ -6,25 +6,46 @@ This document explains the maintainer system for OpenModbus device profiles.
 
 Maintainers are individuals or organizations responsible for the accuracy and maintenance of specific device profiles. They review contributions, test updates, and ensure profile quality.
 
+**Note**: At this early stage, governance is intentionally lightweight. The goal is to lower barriers to contribution while building quality through community ownership.
+
 ## Maintainer Roles
 
-- **primary**: Main point of contact, has device access for testing
+- **primary**: Main point of contact, has device access for testing, authoritative source
 - **contributor**: Contributed to the profile, reviews changes
-- **emeritus**: Former maintainer, no longer active but credited
+- **emeritus**: Former maintainer, no longer active but credited for past work
 
 ## Becoming a Maintainer
 
-### New Device
+### Contributing a New Device
 
-When you contribute a new device profile, you automatically become its initial maintainer.
+When you contribute a new device profile, **you become its maintainer by default**. Simply add yourself to the YAML:
 
-### Existing Device
+```yaml
+maintainers:
+  - name: Your Name
+    github: yourusername
+    email: you@example.com
+    role: primary
+```
 
-To adopt an orphaned device or become a co-maintainer:
+### Claiming an Existing Device
 
-1. Submit a PR adding yourself to the device's `maintainers` list
-2. Explain your interest and experience with the device
-3. Existing maintainer (if any) or core team will review
+**For Manufacturers** (⭐ Strongly Encouraged):
+
+If you're the device manufacturer, you're the authoritative source! To claim your product's profile:
+
+1. Fork the repository
+2. Update the device YAML, adding yourself as `role: primary`
+3. Submit a PR with title: `[CLAIM] Manufacturer takeover: <device_name>`
+4. If CI passes, it will be merged (manufacturers get priority)
+
+**For Community Contributors**:
+
+To adopt a device with only emeritus maintainers:
+
+1. Submit a PR adding yourself to `maintainers` list
+2. Explain your experience with the device (have hardware, use it regularly, etc.)
+3. If CI passes and explanation is reasonable, it will be merged
 
 ## Maintainer Responsibilities
 
@@ -45,13 +66,11 @@ To adopt an orphaned device or become a co-maintainer:
 
 If you can no longer maintain a device:
 
-1. Update your role to `emeritus` or remove yourself
-2. Notify core team so device can be marked as needing maintainer
+1. Update your role to `emeritus` in the device YAML
+2. Open an issue titled `[SEEKING MAINTAINER] <device_name>` to find a replacement
 3. Help transition to new maintainer if possible
 
-## Core Team
-
-For devices without maintainers, the Stekker core team (@stekker/openmodbus-core) provides backup review.
+**Note**: Devices with only emeritus maintainers are available for community adoption!
 
 ## Adding Maintainer Info to YAML
 
@@ -71,16 +90,20 @@ device:
 
 Only `github` is required. Email is recommended for direct contact.
 
-## GitHub Integration
+## GitHub Integration (Optional)
 
-The `.github/CODEOWNERS` file routes PRs to device maintainers automatically. When you add yourself as maintainer, update CODEOWNERS too:
+The `.github/CODEOWNERS` file can route PRs to device maintainers automatically, but **it's optional** at this early stage.
 
+If you want GitHub notifications for your devices:
+1. Add yourself to `.github/CODEOWNERS`
+2. GitHub will automatically request your review on relevant PRs
+
+Example:
 ```
 # In .github/CODEOWNERS
 /registry/stable/example/** @yourusername
-/registry/contrib/example_*.yaml @yourusername
 ```
 
 ## Questions?
 
-Open an issue or contact the core team at edb+openmodbus@stekker.com
+Open an issue or start a discussion. This is a community-run project!

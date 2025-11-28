@@ -13,7 +13,7 @@ device:
       github: erikdebruijn
       organization: Stekker
       email: edb+openmodbus@stekker.com
-      role: primary
+      role: emeritus
 
 registers:
   "344":
