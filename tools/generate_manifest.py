@@ -91,7 +91,7 @@ def generate_manifest():
     # Build manifest
     manifest = {
         "version": "0.1.0",
-        "schema_version": "0.1",
+        "schema_version": "0.1.0",
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "description": "OpenModbus Device Registry - Stable device profiles",
         "devices": devices

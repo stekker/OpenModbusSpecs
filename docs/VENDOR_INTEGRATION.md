@@ -23,7 +23,7 @@ This guide explains how device manufacturers can provide authoritative OpenModbu
 Host the YAML file on your website and mark it as canonical:
 
 ```yaml
-version: "0.1"
+version: "0.1.0"
 
 device:
   id: acme_meter_pro
@@ -90,7 +90,7 @@ device_profiles:
 
 ```yaml
 # https://victronenergy.com/modbus/vm-3p75ct.yaml
-version: "0.1"
+version: "0.1.0"
 
 device:
   id: victron_vm3p75ct

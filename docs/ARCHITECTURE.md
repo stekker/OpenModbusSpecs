@@ -122,7 +122,7 @@ func (m *DeviceProfileManager) LoadProfile(deviceID string) (*DeviceProfile, err
 ```json
 {
   "generated_at": "2025-11-28T15:30:00Z",
-  "schema_version": "0.1",
+  "schema_version": "0.1.0",
   "locked_profiles": {
     "alfen_ng9xx": {
       "version": "1.0.0",
