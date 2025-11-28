@@ -126,6 +126,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Our goal is to create the de facto standard for Modbus device interface descriptions, making industrial automation more accessible and reducing integration time from days to minutes.
 
+## About Stekker
+
+This project is maintained by [Stekker](https://stekker.com), a company on a mission to make the electrical grid more sustainable and resilient. We enable organizations to maximize their use of locally generated renewable electricity while staying within grid connection constraints.
+
+Through intelligent load management and real-time optimization, we help our customers operate more efficiently by steering when consumption occurs—whether charging electric vehicle fleets, managing stationary battery storage, or controlling other flexible loads. This ensures they use the cleanest and most affordable electricity available at any given moment.
+
+The OpenModbus specification emerged from our need to rapidly integrate diverse Modbus devices in industrial and commercial energy management deployments. We're sharing it with the community to accelerate the transition to smarter, cleaner energy systems.
+
+Learn more at [stekker.com](https://stekker.com)
+
 ## Support
 
 - **Issues**: Report bugs or request new device support via GitHub Issues
