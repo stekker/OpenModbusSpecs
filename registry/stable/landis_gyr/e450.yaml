@@ -1,0 +1,263 @@
+version: 1
+
+device:
+  id: landis_gyr_e450
+  manufacturer: Landis+Gyr
+  model: E450
+  description: Landis+Gyr E450 three-phase energy meter
+  protocol: modbus_tcp
+  default_byte_order: BADC
+  default_register_type: input
+
+registers:
+  "0":
+    descriptive_name: voltage_L1
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: V
+    register_type: input
+
+  "2":
+    descriptive_name: voltage_L2
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: V
+    register_type: input
+
+  "4":
+    descriptive_name: voltage_L3
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: V
+    register_type: input
+
+  "6":
+    descriptive_name: current_L1
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+
+  "8":
+    descriptive_name: current_L2
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+
+  "10":
+    descriptive_name: current_L3
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+
+  "12":
+    descriptive_name: current_N
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+
+  "14":
+    descriptive_name: mains_frequency
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: Hz
+    register_type: input
+
+  "16":
+    descriptive_name: total_active_power
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kW
+    register_type: input
+
+  "18":
+    descriptive_name: total_reactive_power
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVAr
+    register_type: input
+
+  "20":
+    descriptive_name: apparent_power_import
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVA
+    register_type: input
+
+  "22":
+    descriptive_name: total_power_factor
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: ""
+    register_type: input
+
+  "24":
+    descriptive_name: power_factor_L1
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: ""
+    register_type: input
+
+  "26":
+    descriptive_name: power_factor_L2
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: ""
+    register_type: input
+
+  "28":
+    descriptive_name: power_factor_L3
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: ""
+    register_type: input
+
+  "30":
+    descriptive_name: active_power_L1
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kW
+    register_type: input
+
+  "32":
+    descriptive_name: active_power_L2
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kW
+    register_type: input
+
+  "34":
+    descriptive_name: active_power_L3
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kW
+    register_type: input
+
+  "36":
+    descriptive_name: reactive_power_L1
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVAr
+    register_type: input
+
+  "38":
+    descriptive_name: reactive_power_L2
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVAr
+    register_type: input
+
+  "40":
+    descriptive_name: reactive_power_L3
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVAr
+    register_type: input
+
+  "42":
+    descriptive_name: apparent_power_L1
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVA
+    register_type: input
+
+  "44":
+    descriptive_name: apparent_power_L2
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVA
+    register_type: input
+
+  "46":
+    descriptive_name: apparent_power_L3
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVA
+    register_type: input
+
+  "48":
+    descriptive_name: active_energy_import
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kWh
+    register_type: input
+
+  "50":
+    descriptive_name: active_energy_export
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kWh
+    register_type: input
+
+  "52":
+    descriptive_name: reactive_energy_import
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVArh
+    register_type: input
+
+  "54":
+    descriptive_name: reactive_energy_export
+    type: float
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: kVArh
+    register_type: input

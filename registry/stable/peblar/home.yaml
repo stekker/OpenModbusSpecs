@@ -1,0 +1,160 @@
+version: 1
+
+device:
+  id: peblar_home
+  manufacturer: Peblar
+  model: Peblar Home
+  description: Peblar EV Charger
+  protocol: modbus_tcp
+  default_byte_order: ABCD
+  default_register_type: input
+
+registers:
+  "30000":
+    descriptive_name: energy_total
+    type: integer
+    bit_width: 64
+    signed: true
+    length: 4
+    unit: Wh
+    register_type: input
+    byte_order: WORD_SWAP
+
+  "30004":
+    descriptive_name: session_energy
+    type: integer
+    bit_width: 64
+    signed: true
+    length: 4
+    unit: Wh
+    register_type: input
+    byte_order: WORD_SWAP
+
+  "30008":
+    descriptive_name: power_L1
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: W
+    register_type: input
+
+  "30010":
+    descriptive_name: power_L2
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: W
+    register_type: input
+
+  "30012":
+    descriptive_name: power_L3
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: W
+    register_type: input
+
+  "30014":
+    descriptive_name: power_total
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: W
+    register_type: input
+
+  "30016":
+    descriptive_name: voltage_L1
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: V
+    register_type: input
+
+  "30018":
+    descriptive_name: voltage_L2
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: V
+    register_type: input
+
+  "30020":
+    descriptive_name: voltage_L3
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: V
+    register_type: input
+
+  "30022":
+    descriptive_name: current_L1
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+    scaling:
+      factor: 0.001
+      offset: 0
+
+  "30024":
+    descriptive_name: current_L2
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+    scaling:
+      factor: 0.001
+      offset: 0
+
+  "30026":
+    descriptive_name: current_L3
+    type: integer
+    bit_width: 32
+    signed: true
+    length: 2
+    unit: A
+    register_type: input
+    scaling:
+      factor: 0.001
+      offset: 0
+
+  "30092":
+    descriptive_name: phase_count
+    type: integer
+    bit_width: 16
+    signed: false
+    length: 1
+    unit: ""
+    register_type: input
+
+  "30113":
+    descriptive_name: current_limit_actual
+    type: integer
+    bit_width: 32
+    signed: false
+    length: 2
+    unit: A
+    register_type: input
+    scaling:
+      factor: 0.001
+      offset: 0
+
+  "30090":
+    descriptive_name: uptime
+    type: integer
+    bit_width: 32
+    signed: false
+    length: 2
+    unit: s
+    register_type: input

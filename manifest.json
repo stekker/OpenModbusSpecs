@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "schema_version": 1,
+  "updated_at": "2025-11-28T00:00:00Z",
+  "description": "OpenModbus Device Registry - Stable device profiles",
+  "devices": {
+    "alfen_ng9xx": {
+      "manufacturer": "Alfen",
+      "model": "NG9xx",
+      "description": "Alfen NG9xx EV Charger",
+      "protocol": "modbus_tcp",
+      "path": "registry/stable/alfen/ng9xx.yaml",
+      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/alfen/ng9xx.yaml",
+      "stability": "stable",
+      "version": "1.0.0"
+    },
+    "janitza_umg604": {
+      "manufacturer": "Janitza",
+      "model": "UMG604",
+      "description": "Universal Measuring Device - Multi-functional power quality analyzer and energy meter",
+      "protocol": "modbus_tcp",
+      "path": "registry/stable/janitza/umg604.yaml",
+      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/janitza/umg604.yaml",
+      "stability": "stable",
+      "version": "1.0.0"
+    },
+    "landis_gyr_e450": {
+      "manufacturer": "Landis+Gyr",
+      "model": "E450",
+      "description": "Landis+Gyr E450 three-phase energy meter",
+      "protocol": "modbus_tcp",
+      "path": "registry/stable/landis_gyr/e450.yaml",
+      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/landis_gyr/e450.yaml",
+      "stability": "stable",
+      "version": "1.0.0"
+    },
+    "peblar_home": {
+      "manufacturer": "Peblar",
+      "model": "Peblar Home",
+      "description": "Peblar EV Charger",
+      "protocol": "modbus_tcp",
+      "path": "registry/stable/peblar/home.yaml",
+      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/peblar/home.yaml",
+      "stability": "stable",
+      "version": "1.0.0"
+    },
+    "victron_vm3p75ct": {
+      "manufacturer": "Victron Energy",
+      "model": "VM-3P75CT",
+      "description": "Victron VM-3P75CT three-phase energy meter",
+      "protocol": "modbus_udp",
+      "path": "registry/stable/victron/vm3p75ct.yaml",
+      "url": "https://raw.githubusercontent.com/yourorg/OpenModbusSpecs/main/registry/stable/victron/vm3p75ct.yaml",
+      "stability": "stable",
+      "version": "1.0.0"
+    }
+  }
+}
