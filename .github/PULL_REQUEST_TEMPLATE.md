@@ -2,6 +2,8 @@
 
 <!-- Describe the device profile you're adding or the changes you're making -->
 
+**Note:** New device profiles should be added to `registry/contrib/` and will be promoted to `registry/stable/` after validation.
+
 ## Device Information
 
 - **Manufacturer:**

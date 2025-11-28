@@ -12,10 +12,10 @@ Thank you for your interest in contributing! This guide will help you add new de
 
 ### 1. File Location and Naming
 
-Create a new YAML file in `contrib/`:
+Create a new YAML file in `registry/contrib/`:
 
 ```bash
-contrib/<manufacturer>_<model>.yaml
+registry/contrib/<manufacturer>_<model>.yaml
 ```
 
 Use lowercase with underscores. For example:

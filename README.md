@@ -93,10 +93,10 @@ We welcome contributions of new device profiles! Please:
 
 1. Create a YAML file following the schema
 2. Validate it using `tools/validate.py`
-3. Submit a pull request to the `contrib/` directory
+3. Submit a pull request adding your file to `registry/contrib/`
 4. Our team will review and promote it to `registry/stable/` once validated
 
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines.
+See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines and [registry/contrib/README.md](registry/contrib/README.md) for the contribution workflow.
 
 ## Validation
 
