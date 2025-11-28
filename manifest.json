@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "schema_version": "0.1",
-  "updated_at": "2025-11-28T15:05:25.123795+00:00",
+  "updated_at": "2025-11-28T15:11:16.431282+00:00",
   "description": "OpenModbus Device Registry - Stable device profiles",
   "devices": {
     "alfen_ng9xx": {
