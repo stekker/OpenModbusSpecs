@@ -1,4 +1,4 @@
-version: "0.1.0"
+version: "0.2.0"
 
 device:
   id: victron_vm3p75ct
@@ -6,6 +6,7 @@ device:
   model: VM-3P75CT
   description: Victron VM-3P75CT three-phase energy meter
   protocol: modbus_udp
+  profile_version: "1.0.0"
   default_byte_order: ABCD
   default_register_type: holding
   maintainers:

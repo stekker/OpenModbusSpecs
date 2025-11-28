@@ -1,4 +1,4 @@
-version: "0.1.0"
+version: "0.2.0"
 
 device:
   id: landis_gyr_e450
@@ -6,6 +6,7 @@ device:
   model: E450
   description: Landis+Gyr E450 three-phase energy meter
   protocol: modbus_tcp
+  profile_version: "1.0.0"
   default_byte_order: BADC
   default_register_type: input
   maintainers:

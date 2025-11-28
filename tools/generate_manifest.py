@@ -55,9 +55,12 @@ def generate_manifest():
                     "role": m.get("role", "contributor")
                 })
 
+            # Get profile version
+            profile_version = device_info.get("profile_version", "1.0.0")
+
             # Build version entry
             version_entry = {
-                "version": "1.0.0",  # Default version for now
+                "version": profile_version,
                 "stability": stability,
                 "path": str(rel_path),
                 "url": f"https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/{rel_path}",
@@ -86,12 +89,12 @@ def generate_manifest():
             devices[device_id]["versions"].append(version_entry)
 
             # Update latest pointer
-            devices[device_id]["latest"][stability] = "1.0.0"
+            devices[device_id]["latest"][stability] = profile_version
 
     # Build manifest
     manifest = {
-        "version": "0.1.0",
-        "schema_version": "0.1.0",
+        "version": "0.2.0",
+        "schema_version": "0.2.0",
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "description": "OpenModbus Device Registry - Stable device profiles",
         "devices": devices

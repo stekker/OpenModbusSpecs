@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
-  "schema_version": "0.1.0",
-  "updated_at": "2025-11-28T16:15:40.721129+00:00",
+  "version": "0.2.0",
+  "schema_version": "0.2.0",
+  "updated_at": "2025-11-28T16:25:50.942406+00:00",
   "description": "OpenModbus Device Registry - Stable device profiles",
   "devices": {
     "alfen_ng9xx": {
@@ -15,7 +15,7 @@
           "stability": "stable",
           "path": "registry/stable/alfen/ng9xx.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/alfen/ng9xx.yaml",
-          "published_at": "2025-11-28T16:15:40.700370+00:00",
+          "published_at": "2025-11-28T16:25:50.898761+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -40,7 +40,7 @@
           "stability": "stable",
           "path": "registry/stable/janitza/umg604.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/janitza/umg604.yaml",
-          "published_at": "2025-11-28T16:15:40.704039+00:00",
+          "published_at": "2025-11-28T16:25:50.924442+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -65,7 +65,7 @@
           "stability": "stable",
           "path": "registry/stable/landis_gyr/e450.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/landis_gyr/e450.yaml",
-          "published_at": "2025-11-28T16:15:40.710468+00:00",
+          "published_at": "2025-11-28T16:25:50.931330+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -90,7 +90,7 @@
           "stability": "stable",
           "path": "registry/stable/peblar/home.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/peblar/home.yaml",
-          "published_at": "2025-11-28T16:15:40.714437+00:00",
+          "published_at": "2025-11-28T16:25:50.935353+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -115,7 +115,7 @@
           "stability": "stable",
           "path": "registry/stable/victron/vm3p75ct.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/victron/vm3p75ct.yaml",
-          "published_at": "2025-11-28T16:15:40.721065+00:00",
+          "published_at": "2025-11-28T16:25:50.942316+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",

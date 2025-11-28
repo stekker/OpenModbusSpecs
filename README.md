@@ -62,7 +62,7 @@ Device profiles are written in YAML and describe:
 Example:
 
 ```yaml
-version: "0.1.0"
+version: "0.2.0"
 
 device:
   id: example_device
@@ -140,9 +140,9 @@ npm install -g js-yaml ajv-cli ajv-formats
 
 ## Schema Version
 
-Current schema version: **v0.1.0** (pre-release)
+Current schema version: **v0.2.0** (pre-release)
 
-The schema uses semantic versioning. We're starting at v0.1.0 to gather community feedback before stabilizing to v1.0.0.
+The schema uses semantic versioning. We're starting at v0.2.0 to gather community feedback before stabilizing to v1.0.0.
 
 ## License
 
