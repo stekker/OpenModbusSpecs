@@ -103,10 +103,12 @@ See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines.
 Validate your device profile:
 
 ```bash
-# Python validator
+# Python validator (recommended - minimal dependencies)
+pip3 install pyyaml jsonschema
 python3 tools/validate.py
 
-# Shell script validator (requires yq and ajv-cli)
+# Alternative: Shell script validator (requires Node.js)
+npm install -g js-yaml ajv-cli ajv-formats
 ./tools/validate_all.sh
 ```
 

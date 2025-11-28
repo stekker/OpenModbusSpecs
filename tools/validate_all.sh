@@ -7,17 +7,26 @@ echo "OpenModbus Schema Validation"
 echo "============================="
 echo ""
 
-# Check if yq is installed
-if ! command -v yq &> /dev/null; then
-    echo "Error: yq is not installed"
-    echo "Install with: brew install yq"
+# Check if node is installed
+if ! command -v node &> /dev/null; then
+    echo "Error: Node.js is not installed"
+    echo "Install from: https://nodejs.org/"
+    exit 1
+fi
+
+# Check if required npm packages are available
+if ! command -v js-yaml &> /dev/null && ! npx -q js-yaml --version &> /dev/null; then
+    echo "Error: js-yaml is not installed"
+    echo "Install with: npm install -g js-yaml"
+    echo "Or use npx (no install needed): npx will download automatically"
     exit 1
 fi
 
 # Check if ajv-cli is installed
-if ! command -v ajv &> /dev/null; then
+if ! command -v ajv &> /dev/null && ! npx -q ajv --help &> /dev/null; then
     echo "Error: ajv-cli is not installed"
     echo "Install with: npm install -g ajv-cli ajv-formats"
+    echo "Or use npx (no install needed): npx will download automatically"
     exit 1
 fi
 
@@ -37,10 +46,14 @@ while IFS= read -r yaml_file; do
 
     # Convert YAML to JSON for validation
     JSON_FILE="/tmp/$(basename "$yaml_file" .yaml).json"
-    yq eval -o=json "$yaml_file" > "$JSON_FILE"
+    node -e "console.log(JSON.stringify(require('js-yaml').load(require('fs').readFileSync('$yaml_file', 'utf8'))))" > "$JSON_FILE" 2>/dev/null || {
+        echo "  ✗ FAIL (YAML parse error)"
+        ((FAILED++))
+        continue
+    }
 
     # Validate against schema
-    if ajv validate -s "$SCHEMA" -d "$JSON_FILE" --strict=false 2>&1; then
+    if ajv validate -s "$SCHEMA" -d "$JSON_FILE" --strict=false 2>&1 || npx -q ajv-cli validate -s "$SCHEMA" -d "$JSON_FILE" --strict=false 2>&1; then
         echo "  ✓ PASS"
         ((PASSED++))
     else
