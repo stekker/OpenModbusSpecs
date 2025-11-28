@@ -112,7 +112,36 @@
                 "enum": ["primary", "contributor", "emeritus"],
                 "default": "contributor",
                 "description": "Maintainer role"
+              },
+              "pgp_fingerprint": {
+                "type": "string",
+                "pattern": "^[A-F0-9]{40}$",
+                "description": "PGP/GPG key fingerprint (40 hex chars) for signature verification"
+              },
+              "pgp_key_url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL to public PGP key (fallback if WKD not available)"
               }
+            }
+          }
+        },
+        "signature": {
+          "type": "object",
+          "description": "Digital signature for vendor-maintained profiles",
+          "properties": {
+            "pgp": {
+              "type": "string",
+              "description": "Detached PGP signature of this file (base64-encoded)"
+            },
+            "signed_by": {
+              "type": "string",
+              "description": "Email address of signer (for WKD lookup)"
+            },
+            "signed_at": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Signature timestamp"
             }
           }
         }

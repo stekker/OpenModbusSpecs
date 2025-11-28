@@ -37,6 +37,17 @@ jobs:
         run: |
           python3 tools/validate.py
 
+      - name: Verify PGP signatures (vendor profiles)
+        run: |
+          # Verify signatures on vendor-maintained profiles
+          # (signatures are optional but recommended)
+          for file in registry/stable/**/*.yaml registry/contrib/**/*.yaml; do
+            if [ -f "$file" ]; then
+              python3 tools/verify_signature.py "$file" || echo "⚠ No signature or verification failed: $file"
+            fi
+          done
+        continue-on-error: true  # Don't fail build on missing signatures
+
       - name: Check for changed files
         if: github.event_name == 'pull_request'
         id: changed-files
