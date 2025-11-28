@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openmodbus.org/schema/v1.json",
+  "title": "OpenModbus Device Register Map",
+  "description": "Schema for OpenModbus Specification v0.1",
+  "type": "object",
+  "required": ["version", "device", "registers"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Schema major version"
+    },
+    "device": {
+      "type": "object",
+      "required": ["id", "manufacturer", "model", "protocol"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]+$",
+          "description": "Unique device identifier (snake_case with optional uppercase)"
+        },
+        "manufacturer": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Manufacturer name"
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Device model number/name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description"
+        },
+        "protocol": {
+          "type": "string",
+          "enum": ["modbus_tcp", "modbus_rtu", "modbus_udp"],
+          "description": "Modbus protocol variant"
+        },
+        "default_byte_order": {
+          "type": "string",
+          "enum": ["ABCD", "BADC", "CDAB", "DCBA", "WORD_SWAP", "BYTE_SWAP", "FULL_SWAP"],
+          "description": "Default byte order for multi-register numerics"
+        },
+        "default_register_type": {
+          "type": "string",
+          "enum": ["holding", "input", "coil", "discrete_input"],
+          "description": "Default register type"
+        },
+        "tags": {
+          "type": "object",
+          "description": "Arbitrary key-value metadata"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "registers": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+$": {
+          "type": "object",
+          "required": ["descriptive_name", "type", "length", "unit", "register_type"],
+          "properties": {
+            "descriptive_name": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_]+$",
+              "description": "Machine-safe identifier (snake_case with optional uppercase)"
+            },
+            "vendor_name": {
+              "type": "string",
+              "description": "Original name from vendor documentation"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["integer", "float", "string", "bool"],
+              "description": "Data type"
+            },
+            "bit_width": {
+              "type": "integer",
+              "enum": [16, 32, 64],
+              "description": "Bit width for integer and float types"
+            },
+            "signed": {
+              "type": "boolean",
+              "description": "Whether the value is signed"
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Number of 16-bit registers"
+            },
+            "byte_order": {
+              "type": "string",
+              "enum": ["ABCD", "BADC", "CDAB", "DCBA", "WORD_SWAP", "BYTE_SWAP", "FULL_SWAP"],
+              "description": "Override device default byte order"
+            },
+            "unit": {
+              "type": "string",
+              "description": "SI unit or empty string"
+            },
+            "register_type": {
+              "type": "string",
+              "enum": ["holding", "input", "coil", "discrete_input"],
+              "description": "Modbus register type"
+            },
+            "read_access": {
+              "type": "boolean",
+              "default": true,
+              "description": "Whether register can be read"
+            },
+            "write_access": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether register can be written"
+            },
+            "obis_code": {
+              "type": "string",
+              "description": "OBIS code if applicable"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Free-text implementation notes"
+            },
+            "bits": {
+              "type": "object",
+              "patternProperties": {
+                "^[0-9]+$": {
+                  "type": "object",
+                  "required": ["descriptive_name"],
+                  "properties": {
+                    "descriptive_name": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_]+$"
+                    },
+                    "vendor_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "description": "Bitfield definitions for integer types"
+            },
+            "scaling": {
+              "type": "object",
+              "properties": {
+                "factor": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                }
+              },
+              "description": "Scaling factor and offset"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": { "type": { "const": "integer" } }
+              },
+              "then": {
+                "required": ["bit_width", "signed"]
+              }
+            },
+            {
+              "if": {
+                "properties": { "type": { "const": "float" } }
+              },
+              "then": {
+                "required": ["bit_width"]
+              }
+            },
+            {
+              "if": {
+                "properties": { "type": { "const": "string" } }
+              },
+              "then": {
+                "not": {
+                  "anyOf": [
+                    { "required": ["bit_width"] },
+                    { "required": ["signed"] },
+                    { "required": ["byte_order"] }
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": { "type": { "const": "bool" } }
+              },
+              "then": {
+                "properties": { "length": { "const": 1 } },
+                "not": {
+                  "anyOf": [
+                    { "required": ["bit_width"] },
+                    { "required": ["signed"] }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
