@@ -57,6 +57,7 @@
         },
         "sources": {
           "type": "array",
+          "description": "Documentation sources (datasheets, manuals, etc.)",
           "items": {
             "type": "object",
             "required": ["url"],
@@ -66,13 +67,19 @@
                 "format": "uri"
               },
               "type": {
-                "type": "string"
+                "type": "string",
+                "enum": ["datasheet", "manual", "website", "api_docs", "other"]
               },
               "description": {
                 "type": "string"
               }
             }
           }
+        },
+        "canonical_source": {
+          "type": "string",
+          "format": "uri",
+          "description": "Vendor's official URL hosting this device profile (if available)"
         },
         "maintainers": {
           "type": "array",

@@ -66,6 +66,11 @@ def generate_manifest():
                 "has_active_maintainer": len(maintainer_info) > 0
             }
 
+            # Add canonical source if available
+            canonical = device_info.get("canonical_source")
+            if canonical:
+                version_entry["canonical_source"] = canonical
+
             # Initialize device entry if it doesn't exist
             if device_id not in devices:
                 devices[device_id] = {
