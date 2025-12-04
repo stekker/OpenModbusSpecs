@@ -1,15 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://openmodbus.org/schema/v0.2.json",
+  "$id": "https://openmodbus.org/schema/v0.3.json",
   "title": "OpenModbus Device Register Map",
-  "description": "Schema for OpenModbus Specification v0.2.0",
+  "description": "Schema for OpenModbus Specification v0.3.0. SECURITY NOTE: Device profiles must contain only data (no executable code). YAML parsers must use safe mode to prevent arbitrary code execution.",
   "type": "object",
   "required": ["version", "device", "registers"],
   "additionalProperties": false,
   "properties": {
     "version": {
       "type": "string",
-      "const": "0.2.0",
+      "const": "0.3.0",
       "description": "Schema version (semver)"
     },
     "device": {
@@ -157,35 +157,26 @@
       "patternProperties": {
         "^[0-9]+$": {
           "type": "object",
-          "required": ["descriptive_name", "type", "length", "unit", "register_type"],
+          "required": ["name", "type", "unit", "register_type"],
           "properties": {
-            "descriptive_name": {
+            "name": {
               "type": "string",
               "pattern": "^[a-zA-Z0-9_]+$",
               "description": "Machine-safe identifier (snake_case with optional uppercase)"
             },
-            "vendor_name": {
+            "display_name": {
               "type": "string",
-              "description": "Original name from vendor documentation"
+              "description": "Human-readable name from vendor documentation (optional)"
             },
             "type": {
               "type": "string",
-              "enum": ["integer", "float", "string", "bool"],
-              "description": "Data type"
-            },
-            "bit_width": {
-              "type": "integer",
-              "enum": [16, 32, 64],
-              "description": "Bit width for integer and float types"
-            },
-            "signed": {
-              "type": "boolean",
-              "description": "Whether the value is signed"
+              "enum": ["int8", "uint8", "int16", "uint16", "int32", "uint32", "int64", "uint64", "float32", "float64", "string", "bool"],
+              "description": "Data type with signedness and bit-width encoded (e.g., int32, uint16, float32). For strings, length is required. For numeric types, length is optional and can be inferred from type."
             },
             "length": {
               "type": "integer",
               "minimum": 1,
-              "description": "Number of 16-bit registers"
+              "description": "Number of 16-bit registers. Required for string types (string byte capacity = length × 2), optional for numeric types (inferred from type if not specified: int8/uint8/int16/uint16/bool=1, int32/uint32/float32=2, int64/uint64/float64=4)"
             },
             "byte_order": {
               "type": "string",
@@ -254,31 +245,12 @@
           "allOf": [
             {
               "if": {
-                "properties": { "type": { "const": "integer" } }
-              },
-              "then": {
-                "required": ["bit_width", "signed"]
-              }
-            },
-            {
-              "if": {
-                "properties": { "type": { "const": "float" } }
-              },
-              "then": {
-                "required": ["bit_width"]
-              }
-            },
-            {
-              "if": {
                 "properties": { "type": { "const": "string" } }
               },
               "then": {
+                "required": ["length"],
                 "not": {
-                  "anyOf": [
-                    { "required": ["bit_width"] },
-                    { "required": ["signed"] },
-                    { "required": ["byte_order"] }
-                  ]
+                  "required": ["byte_order"]
                 }
               }
             },
@@ -287,13 +259,7 @@
                 "properties": { "type": { "const": "bool" } }
               },
               "then": {
-                "properties": { "length": { "const": 1 } },
-                "not": {
-                  "anyOf": [
-                    { "required": ["bit_width"] },
-                    { "required": ["signed"] }
-                  ]
-                }
+                "properties": { "length": { "const": 1 } }
               }
             }
           ]

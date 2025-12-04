@@ -1,151 +1,111 @@
-version: "0.2.0"
-
+version: 0.3.0
 device:
   id: janitza_umg604
   manufacturer: Janitza
   model: UMG604
-  description: Universal Measuring Device - Multi-functional power quality analyzer and energy meter
+  description: Universal Measuring Device - Multi-functional power quality analyzer
+    and energy meter
   protocol: modbus_tcp
-  profile_version: "1.0.0"
+  profile_version: 1.0.0
   default_byte_order: BADC
   default_register_type: holding
   maintainers:
-    - name: Erik de Bruijn
-      github: erikdebruijn
-      organization: Stekker
-      email: edb+openmodbus@stekker.com
-      role: emeritus
-
+  - name: Erik de Bruijn
+    github: erikdebruijn
+    organization: Stekker
+    email: edb+openmodbus@stekker.com
+    role: emeritus
 registers:
-  # Device identification (strings - automatically use ABCD)
-  "10072":
-    descriptive_name: device_name
-    vendor_name: "Device Name"
+  '10072':
     type: string
     length: 32
-    unit: ""
+    unit: ''
     register_type: holding
-
-  "10104":
-    descriptive_name: device_description
-    vendor_name: "Device Description"
+    name: device_name
+    display_name: Device Name
+  '10104':
     type: string
     length: 64
-    unit: ""
+    unit: ''
     register_type: holding
-
-  # Voltage measurements (Float32 - 2 registers each)
-  "19000":
-    descriptive_name: voltage_L1
-    vendor_name: "Voltage L1-N"
-    type: float
-    bit_width: 32
-    signed: true
+    name: device_description
+    display_name: Device Description
+  '19000':
+    type: float32
     length: 2
     unit: V
     register_type: holding
-
-  "19002":
-    descriptive_name: voltage_L2
-    vendor_name: "Voltage L2-N"
-    type: float
-    bit_width: 32
-    signed: true
+    name: voltage_L1
+    display_name: Voltage L1-N
+  '19002':
+    type: float32
     length: 2
     unit: V
     register_type: holding
-
-  "19004":
-    descriptive_name: voltage_L3
-    vendor_name: "Voltage L3-N"
-    type: float
-    bit_width: 32
-    signed: true
+    name: voltage_L2
+    display_name: Voltage L2-N
+  '19004':
+    type: float32
     length: 2
     unit: V
     register_type: holding
-
-  # Current measurements (Float32 - 2 registers each)
-  "19012":
-    descriptive_name: current_L1
-    vendor_name: "Current L1"
-    type: float
-    bit_width: 32
-    signed: true
+    name: voltage_L3
+    display_name: Voltage L3-N
+  '19012':
+    type: float32
     length: 2
     unit: A
     register_type: holding
-
-  "19014":
-    descriptive_name: current_L2
-    vendor_name: "Current L2"
-    type: float
-    bit_width: 32
-    signed: true
+    name: current_L1
+    display_name: Current L1
+  '19014':
+    type: float32
     length: 2
     unit: A
     register_type: holding
-
-  "19016":
-    descriptive_name: current_L3
-    vendor_name: "Current L3"
-    type: float
-    bit_width: 32
-    signed: true
+    name: current_L2
+    display_name: Current L2
+  '19016':
+    type: float32
     length: 2
     unit: A
     register_type: holding
-
-  # Active power measurements (Float32 - 2 registers each)
-  "19020":
-    descriptive_name: active_power_L1
-    vendor_name: "Active Power L1"
-    type: float
-    bit_width: 32
-    signed: true
+    name: current_L3
+    display_name: Current L3
+  '19020':
+    type: float32
     length: 2
     unit: W
     register_type: holding
-
-  "19022":
-    descriptive_name: active_power_L2
-    vendor_name: "Active Power L2"
-    type: float
-    bit_width: 32
-    signed: true
+    name: active_power_L1
+    display_name: Active Power L1
+  '19022':
+    type: float32
     length: 2
     unit: W
     register_type: holding
-
-  "19024":
-    descriptive_name: active_power_L3
-    vendor_name: "Active Power L3"
-    type: float
-    bit_width: 32
-    signed: true
+    name: active_power_L2
+    display_name: Active Power L2
+  '19024':
+    type: float32
     length: 2
     unit: W
     register_type: holding
-
-  # Energy counters (Float32 - 2 registers each)
-  "19068":
-    descriptive_name: active_energy_import
-    vendor_name: "Real Energy L1..L3 Consumed"
-    type: float
-    bit_width: 32
-    signed: false
+    name: active_power_L3
+    display_name: Active Power L3
+  '19068':
+    type: float32
     length: 2
     unit: Wh
     register_type: holding
-    obis_code: "1-0:1.8.0*255"
-
-  "19076":
-    descriptive_name: active_energy_export
-    vendor_name: "Real Energy L1..L3 Delivered"
-    type: float
-    bit_width: 32
-    signed: false
+    obis_code: 1-0:1.8.0*255
+    name: active_energy_import
+    display_name: Real Energy L1..L3 Consumed
+  '19076':
+    type: float32
     length: 2
     unit: Wh
     register_type: holding
-    obis_code: "1-0:2.8.0*255"
+    obis_code: 1-0:2.8.0*255
+    name: active_energy_export
+    display_name: Real Energy L1..L3 Delivered

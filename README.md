@@ -62,7 +62,7 @@ Device profiles are written in YAML and describe:
 Example:
 
 ```yaml
-version: "0.2.0"
+version: "0.3.0"
 
 device:
   id: example_device
@@ -75,11 +75,9 @@ device:
 
 registers:
   "0":
-    descriptive_name: voltage_L1
-    vendor_name: "Voltage Phase 1"
-    type: float
-    bit_width: 32
-    signed: true
+    name: voltage_L1
+    display_name: "Voltage Phase 1"
+    type: float32
     length: 2
     unit: V
     register_type: holding
@@ -140,9 +138,9 @@ npm install -g js-yaml ajv-cli ajv-formats
 
 ## Schema Version
 
-Current schema version: **v0.2.0** (pre-release)
+Current schema version: **v0.3.0** (pre-release)
 
-The schema uses semantic versioning. We're starting at v0.2.0 to gather community feedback before stabilizing to v1.0.0.
+The schema uses semantic versioning. We're at v0.3.0 to gather community feedback before stabilizing to v1.0.0.
 
 ## License
 

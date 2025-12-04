@@ -23,7 +23,7 @@ This guide explains how device manufacturers can provide authoritative OpenModbu
 Host the YAML file on your website and mark it as canonical:
 
 ```yaml
-version: "0.2.0"
+version: "0.3.0"
 
 device:
   id: acme_meter_pro
@@ -90,7 +90,7 @@ device_profiles:
 
 ```yaml
 # https://victronenergy.com/modbus/vm-3p75ct.yaml
-version: "0.2.0"
+version: "0.3.0"
 
 device:
   id: victron_vm3p75ct
@@ -116,11 +116,9 @@ device:
 
 registers:
   "4096":
-    descriptive_name: product_id
-    vendor_name: "Product ID"
-    type: integer
-    bit_width: 16
-    signed: false
+    name: product_id
+    display_name: "Product ID"
+    type: uint16
     length: 1
     unit: ""
     register_type: holding
@@ -182,7 +180,7 @@ Edge devices check `canonical_source` first, fall back to our mirror.
 
 ## Submitting Your Profile
 
-1. **Create** device profile following [schema](../schema/v0.1/openmodbus-schema-v0.1.json)
+1. **Create** device profile following [schema](../schema/openmodbus-schema-v0.3.0.json)
 2. **Validate** using `python3 tools/validate.py`
 3. **Test** with real hardware
 4. **Submit** via:

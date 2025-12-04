@@ -57,7 +57,7 @@ yourcompany.com/
 ### Step 3: Add PGP Info to Device Profile
 
 ```yaml
-version: "0.2.0"
+version: "0.3.0"
 
 device:
   id: acme_meter_pro
@@ -93,7 +93,7 @@ base64 acme_meter_pro.yaml.asc > signature.b64
 ### Step 5: Embed Signature in YAML
 
 ```yaml
-version: "0.2.0"
+version: "0.3.0"
 
 device:
   id: acme_meter_pro

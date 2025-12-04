@@ -4,7 +4,7 @@ This directory contains device profiles submitted by the community that are awai
 
 ## Submitting a Device Profile
 
-1. Create your device YAML file following the [schema](../../schema/v0.1/openmodbus-schema-v0.1.json)
+1. Create your device YAML file following the [schema](../../schema/openmodbus-schema-v0.3.0.json)
 2. Validate it locally: `python3 tools/validate.py`
 3. Submit a PR adding your file to this directory: `registry/contrib/<manufacturer>_<model>.yaml`
 4. Our team will review and test the profile

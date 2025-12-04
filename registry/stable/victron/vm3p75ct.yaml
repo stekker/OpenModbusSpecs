@@ -1,282 +1,209 @@
-version: "0.2.0"
-
+version: 0.3.0
 device:
   id: victron_vm3p75ct
   manufacturer: Victron Energy
   model: VM-3P75CT
   description: Victron VM-3P75CT three-phase energy meter
   protocol: modbus_udp
-  profile_version: "1.0.0"
+  profile_version: 1.0.0
   default_byte_order: ABCD
   default_register_type: holding
   maintainers:
-    - name: Erik de Bruijn
-      github: erikdebruijn
-      organization: Stekker
-      email: edb+openmodbus@stekker.com
-      role: emeritus
-
+  - name: Erik de Bruijn
+    github: erikdebruijn
+    organization: Stekker
+    email: edb+openmodbus@stekker.com
+    role: emeritus
 registers:
-  "4096":
-    descriptive_name: product_id
-    type: integer
-    bit_width: 16
-    signed: false
+  '4096':
+    type: uint16
     length: 1
-    unit: ""
+    unit: ''
     register_type: holding
-
-  "4105":
-    descriptive_name: firmware_version
-    type: integer
-    bit_width: 16
-    signed: false
+    name: product_id
+  '4105':
+    type: uint16
     length: 1
-    unit: ""
+    unit: ''
     register_type: holding
-
-  "4107":
-    descriptive_name: hardware_version
-    type: integer
-    bit_width: 16
-    signed: false
+    name: firmware_version
+  '4107':
+    type: uint16
     length: 1
-    unit: ""
+    unit: ''
     register_type: holding
-
-  "12338":
-    descriptive_name: frequency
-    type: integer
-    bit_width: 16
-    signed: false
+    name: hardware_version
+  '12338':
+    type: uint16
     length: 1
     unit: Hz
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12339":
-    descriptive_name: pen_voltage
-    type: integer
-    bit_width: 16
-    signed: true
+    name: frequency
+  '12339':
+    type: int16
     length: 1
     unit: V
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12340":
-    descriptive_name: total_forward_energy
-    type: integer
-    bit_width: 32
-    signed: false
+    name: pen_voltage
+  '12340':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12342":
-    descriptive_name: total_reverse_energy
-    type: integer
-    bit_width: 32
-    signed: false
+    name: total_forward_energy
+  '12342':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12344":
-    descriptive_name: error_code
-    type: integer
-    bit_width: 16
-    signed: false
+    name: total_reverse_energy
+  '12344':
+    type: uint16
     length: 1
-    unit: ""
+    unit: ''
     register_type: holding
-
-  "12416":
-    descriptive_name: total_power
-    type: integer
-    bit_width: 32
-    signed: true
+    name: error_code
+  '12416':
+    type: int32
     length: 2
     unit: W
     register_type: holding
-
-  "12352":
-    descriptive_name: voltage_L1
-    type: integer
-    bit_width: 16
-    signed: true
+    name: total_power
+  '12352':
+    type: int16
     length: 1
     unit: V
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12353":
-    descriptive_name: current_L1
-    type: integer
-    bit_width: 16
-    signed: true
+    name: voltage_L1
+  '12353':
+    type: int16
     length: 1
     unit: A
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12354":
-    descriptive_name: forward_energy_L1
-    type: integer
-    bit_width: 32
-    signed: false
+    name: current_L1
+  '12354':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12356":
-    descriptive_name: reverse_energy_L1
-    type: integer
-    bit_width: 32
-    signed: false
+    name: forward_energy_L1
+  '12356':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12418":
-    descriptive_name: power_L1
-    type: integer
-    bit_width: 32
-    signed: true
+    name: reverse_energy_L1
+  '12418':
+    type: int32
     length: 2
     unit: W
     register_type: holding
-
-  "12360":
-    descriptive_name: voltage_L2
-    type: integer
-    bit_width: 16
-    signed: true
+    name: power_L1
+  '12360':
+    type: int16
     length: 1
     unit: V
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12361":
-    descriptive_name: current_L2
-    type: integer
-    bit_width: 16
-    signed: true
+    name: voltage_L2
+  '12361':
+    type: int16
     length: 1
     unit: A
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12362":
-    descriptive_name: forward_energy_L2
-    type: integer
-    bit_width: 32
-    signed: false
+    name: current_L2
+  '12362':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12364":
-    descriptive_name: reverse_energy_L2
-    type: integer
-    bit_width: 32
-    signed: false
+    name: forward_energy_L2
+  '12364':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12422":
-    descriptive_name: power_L2
-    type: integer
-    bit_width: 32
-    signed: true
+    name: reverse_energy_L2
+  '12422':
+    type: int32
     length: 2
     unit: W
     register_type: holding
-
-  "12368":
-    descriptive_name: voltage_L3
-    type: integer
-    bit_width: 16
-    signed: true
+    name: power_L2
+  '12368':
+    type: int16
     length: 1
     unit: V
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12369":
-    descriptive_name: current_L3
-    type: integer
-    bit_width: 16
-    signed: true
+    name: voltage_L3
+  '12369':
+    type: int16
     length: 1
     unit: A
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12370":
-    descriptive_name: forward_energy_L3
-    type: integer
-    bit_width: 32
-    signed: false
+    name: current_L3
+  '12370':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12372":
-    descriptive_name: reverse_energy_L3
-    type: integer
-    bit_width: 32
-    signed: false
+    name: forward_energy_L3
+  '12372':
+    type: uint32
     length: 2
     unit: kWh
     register_type: holding
     scaling:
       factor: 0.01
       offset: 0
-
-  "12426":
-    descriptive_name: power_L3
-    type: integer
-    bit_width: 32
-    signed: true
+    name: reverse_energy_L3
+  '12426':
+    type: int32
     length: 2
     unit: W
     register_type: holding
+    name: power_L3

@@ -28,7 +28,7 @@ Use lowercase with underscores. For example:
 Every device profile must include:
 
 ```yaml
-version: "0.2.0"
+version: "0.3.0"
 
 device:
   id: unique_device_id          # Snake_case identifier
@@ -46,13 +46,11 @@ device:
 
 registers:
   "0":                          # Register address (as string)
-    descriptive_name: voltage_L1  # Machine-readable name (snake_case)
-    type: float                 # integer, float, string, or bool
-    bit_width: 32              # 16, 32, or 64 (for integer/float)
-    signed: true               # true or false (for integer/float)
-    length: 2                  # Number of 16-bit registers
-    unit: V                    # SI unit or empty string
-    register_type: holding     # Can override device default
+    name: voltage_L1            # Machine-readable identifier (snake_case)
+    type: float32               # int16, uint16, int32, uint32, int64, uint64, float32, float64, string, or bool
+    length: 2                   # Number of 16-bit registers (optional for numeric types, inferred from type)
+    unit: V                     # SI unit or empty string
+    register_type: holding      # Can override device default
 ```
 
 ### 3. Optional Fields
@@ -72,7 +70,7 @@ device:
 
 registers:
   "0":
-    vendor_name: "Original register name from manual"
+    display_name: "Original register name from manual"
     byte_order: BADC           # Override device default
     obis_code: "1-0:1.8.0*255" # For energy meters
     notes: "Special considerations for this register"
@@ -81,11 +79,11 @@ registers:
       offset: 0
     bits:                       # For bitfield definitions
       "0":
-        descriptive_name: status_bit_0
-        vendor_name: "Ready"
+        name: status_bit_0
+        display_name: "Ready"
       "1":
-        descriptive_name: status_bit_1
-        vendor_name: "Fault"
+        name: status_bit_1
+        display_name: "Fault"
 ```
 
 ### 4. Validation
@@ -112,7 +110,7 @@ Fix any validation errors before submitting.
 
 ## Register Naming Guidelines
 
-### descriptive_name
+### name
 
 Use snake_case with descriptive, consistent names:
 
@@ -138,36 +136,83 @@ Use SI units without prefixes when possible:
 
 ## Data Types
 
-### Integer
+All numeric types have **implied length** (number of 16-bit registers) - you don't need to specify it. Only `string` types require an explicit `length` field.
 
+### Complete Type Reference
+
+| Type | Bits | Registers | Signedness | Usage |
+|------|------|-----------|------------|-------|
+| `uint8` | 8 | 1 | Unsigned | Rare (0-255) |
+| `int8` | 8 | 1 | Signed | Rare (-128 to 127) |
+| `uint16` | 16 | 1 | Unsigned | Very common (baseline Modbus) |
+| `int16` | 16 | 1 | Signed | Very common |
+| `uint32` | 32 | 2 | Unsigned | Common |
+| `int32` | 32 | 2 | Signed | Common |
+| `uint64` | 64 | 4 | Unsigned | Rare |
+| `int64` | 64 | 4 | Signed | Rare |
+| `float32` | 32 | 2 | IEEE 754 | Very common |
+| `float64` | 64 | 4 | IEEE 754 | Uncommon |
+| `bool` | 1 bit | 1 | N/A | Common |
+| `string` | Variable | Variable | N/A | Common |
+
+### Examples
+
+#### Numeric Types (length inferred)
 ```yaml
-type: integer
-bit_width: 32        # 16, 32, or 64
-signed: true         # true or false
+registers:
+  "0":
+    name: product_id
+    type: uint16      # 1 register - NO length field needed
+    unit: ""
+
+  "10":
+    name: voltage_L1
+    type: float32     # 2 registers - NO length field needed
+    unit: V
+    scaling:
+      factor: 0.01
+      offset: 0
+
+  "100":
+    name: total_energy
+    type: uint32      # 2 registers - NO length field needed
+    unit: Wh
+
+  "200":
+    name: timestamp
+    type: int64       # 4 registers - NO length field needed
+    unit: s
 ```
 
-### Float
-
+#### String Type (length required)
 ```yaml
-type: float
-bit_width: 32        # 32 or 64 (IEEE 754)
+registers:
+  "1000":
+    name: device_name
+    type: string
+    length: 16        # REQUIRED: 16 registers = 32 bytes capacity
+    unit: ""
 ```
 
-### String
+### Common Mistakes
 
+**❌ Don't use programming language aliases** - they're not accepted:
 ```yaml
-type: string
-length: 32           # Number of 16-bit registers
-# No bit_width or signed fields for strings
+type: int            # ❌ Error - use int32
+type: short          # ❌ Error - use int16
+type: double         # ❌ Error - use float64
+type: float          # ❌ Error - use float32
 ```
 
-### Boolean
-
+**✅ Use explicit numeric type names:**
 ```yaml
-type: bool
-length: 1            # Always 1 register
-# No bit_width or signed fields for booleans
+type: int32          # ✓ Correct
+type: int16          # ✓ Correct
+type: float64        # ✓ Correct
+type: float32        # ✓ Correct
 ```
+
+The validator will suggest corrections if you use common aliases.
 
 ## Byte Order
 

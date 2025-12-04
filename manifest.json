@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "schema_version": "0.2.0",
+  "version": "0.3.0",
+  "schema_version": "0.3.0",
   "updated_at": "2025-11-28T16:25:50.942406+00:00",
   "description": "OpenModbus Device Registry - Stable device profiles",
   "devices": {
