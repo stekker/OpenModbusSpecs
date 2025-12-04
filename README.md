@@ -1,6 +1,6 @@
 # OpenModbus Device Registry
 
-**Status**: 🚧 Early stage - lightweight governance, PRs auto-merge if CI passes
+**Status**: 🚧 Early stage - lightweight governance, device contributions fast-tracked
 
 An open, machine-readable specification for Modbus device register maps. Think of it as "OpenAPI for Modbus" - a standardized way to describe Modbus device interfaces to eliminate the need for manually interpreting PDF datasheets.
 
