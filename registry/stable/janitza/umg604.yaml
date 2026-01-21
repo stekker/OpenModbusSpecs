@@ -7,7 +7,7 @@ device:
     and energy meter
   protocol: modbus_tcp
   profile_version: 1.0.0
-  default_byte_order: BADC
+  default_byte_order: ABCD
   default_register_type: holding
   maintainers:
   - name: Erik de Bruijn
@@ -93,6 +93,13 @@ registers:
     register_type: holding
     name: active_power_L3
     display_name: Active Power L3
+  '19026':
+    type: float32
+    length: 2
+    unit: W
+    register_type: holding
+    name: total_active_power
+    display_name: Total Active Power L1..L3
   '19068':
     type: float32
     length: 2
