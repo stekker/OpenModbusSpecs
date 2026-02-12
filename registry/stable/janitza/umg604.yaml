@@ -3,18 +3,17 @@ device:
   id: janitza_umg604
   manufacturer: Janitza
   model: UMG604
-  description: Universal Measuring Device - Multi-functional power quality analyzer
-    and energy meter
+  description: Universal Measuring Device - Multi-functional power quality analyzer and energy meter
   protocol: modbus_tcp
   profile_version: 1.0.0
   default_byte_order: ABCD
   default_register_type: holding
   maintainers:
-  - name: Erik de Bruijn
-    github: erikdebruijn
-    organization: Stekker
-    email: edb+openmodbus@stekker.com
-    role: emeritus
+    - name: Erik de Bruijn
+      github: erikdebruijn
+      organization: Stekker
+      email: edb+openmodbus@stekker.com
+      role: emeritus
 registers:
   '10072':
     type: string

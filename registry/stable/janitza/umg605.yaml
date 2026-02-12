@@ -8,79 +8,100 @@ device:
   profile_version: 1.0.0
   default_byte_order: ABCD
   default_register_type: holding
-  sources:
-  - url: https://www.janitza.de/files/download/manuals/current/UMG605/janitza-mal-umg605-en.pdf
-    type: manual
-    description: Modbus address list and formulary
   maintainers:
-  - name: Eric-Paul Bouwman
-    github: ericpaulbouwman
-    organization: Stekker
-    email: epb+openmodbus@stekker.com
-    role: primary
+    - name: Erik de Bruijn
+      github: erikdebruijn
+      organization: Stekker
+      email: edb+openmodbus@stekker.com
+      role: emeritus
 registers:
+  '10072':
+    type: string
+    length: 32
+    unit: ''
+    register_type: holding
+    name: device_name
+    display_name: Device Name
+  '10104':
+    type: string
+    length: 64
+    unit: ''
+    register_type: holding
+    name: device_description
+    display_name: Device Description
   '19000':
     type: float32
+    length: 2
     unit: V
     register_type: holding
     name: voltage_L1
     display_name: Voltage L1-N
   '19002':
     type: float32
+    length: 2
     unit: V
     register_type: holding
     name: voltage_L2
     display_name: Voltage L2-N
   '19004':
     type: float32
+    length: 2
     unit: V
     register_type: holding
     name: voltage_L3
     display_name: Voltage L3-N
   '19012':
     type: float32
+    length: 2
     unit: A
     register_type: holding
     name: current_L1
     display_name: Current L1
   '19014':
     type: float32
+    length: 2
     unit: A
     register_type: holding
     name: current_L2
     display_name: Current L2
   '19016':
     type: float32
+    length: 2
     unit: A
     register_type: holding
     name: current_L3
     display_name: Current L3
   '19020':
     type: float32
+    length: 2
     unit: W
     register_type: holding
     name: active_power_L1
     display_name: Active Power L1
   '19022':
     type: float32
+    length: 2
     unit: W
     register_type: holding
     name: active_power_L2
     display_name: Active Power L2
   '19024':
     type: float32
+    length: 2
     unit: W
     register_type: holding
     name: active_power_L3
     display_name: Active Power L3
   '19026':
     type: float32
+    length: 2
     unit: W
     register_type: holding
     name: total_active_power
     display_name: Total Active Power L1..L3
   '19068':
     type: float32
+    length: 2
     unit: Wh
     register_type: holding
     obis_code: 1-0:1.8.0*255
@@ -88,6 +109,7 @@ registers:
     display_name: Real Energy L1..L3 Consumed
   '19076':
     type: float32
+    length: 2
     unit: Wh
     register_type: holding
     obis_code: 1-0:2.8.0*255
