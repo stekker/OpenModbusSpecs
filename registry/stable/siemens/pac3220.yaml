@@ -1,0 +1,221 @@
+version: 0.3.0
+device:
+  id: siemens_pac3220
+  manufacturer: Siemens
+  model: PAC3220
+  description: SENTRON PAC3220 Power Monitoring Device
+  protocol: modbus_tcp
+  profile_version: 1.0.0
+  default_byte_order: ABCD
+  default_register_type: holding
+  maintainers:
+    - name: Martijn Versluis
+      github: mvz
+      organization: Stekker
+      email: ai@stekker.com
+      role: primary
+  sources:
+    - url: https://cache.industry.siemens.com/dl/files/150/26504150/att_906558/v1/A5E01168664B-04_EN-US_122016_201612221316360495.pdf
+      type: datasheet
+      description: SENTRON PAC3200 manual (PAC3220 shares the same Modbus register map)
+registers:
+  '1':
+    type: float32
+    unit: V
+    register_type: holding
+    name: voltage_L1
+    display_name: Voltage Va-n
+  '3':
+    type: float32
+    unit: V
+    register_type: holding
+    name: voltage_L2
+    display_name: Voltage Vb-n
+  '5':
+    type: float32
+    unit: V
+    register_type: holding
+    name: voltage_L3
+    display_name: Voltage Vc-n
+  '7':
+    type: float32
+    unit: V
+    register_type: holding
+    name: voltage_L1_L2
+    display_name: Voltage Va-b
+  '9':
+    type: float32
+    unit: V
+    register_type: holding
+    name: voltage_L2_L3
+    display_name: Voltage Vb-c
+  '11':
+    type: float32
+    unit: V
+    register_type: holding
+    name: voltage_L3_L1
+    display_name: Voltage Vc-a
+  '13':
+    type: float32
+    unit: A
+    register_type: holding
+    name: current_L1
+    display_name: Current a
+  '15':
+    type: float32
+    unit: A
+    register_type: holding
+    name: current_L2
+    display_name: Current b
+  '17':
+    type: float32
+    unit: A
+    register_type: holding
+    name: current_L3
+    display_name: Current c
+  '19':
+    type: float32
+    unit: VA
+    register_type: holding
+    name: apparent_power_L1
+    display_name: Apparent Power a
+  '21':
+    type: float32
+    unit: VA
+    register_type: holding
+    name: apparent_power_L2
+    display_name: Apparent Power b
+  '23':
+    type: float32
+    unit: VA
+    register_type: holding
+    name: apparent_power_L3
+    display_name: Apparent Power c
+  '25':
+    type: float32
+    unit: W
+    register_type: holding
+    name: active_power_L1
+    display_name: Active Power a
+  '27':
+    type: float32
+    unit: W
+    register_type: holding
+    name: active_power_L2
+    display_name: Active Power b
+  '29':
+    type: float32
+    unit: W
+    register_type: holding
+    name: active_power_L3
+    display_name: Active Power c
+  '31':
+    type: float32
+    unit: var
+    register_type: holding
+    name: reactive_power_L1
+    display_name: Reactive Power a
+  '33':
+    type: float32
+    unit: var
+    register_type: holding
+    name: reactive_power_L2
+    display_name: Reactive Power b
+  '35':
+    type: float32
+    unit: var
+    register_type: holding
+    name: reactive_power_L3
+    display_name: Reactive Power c
+  '37':
+    type: float32
+    unit: ''
+    register_type: holding
+    name: power_factor_L1
+    display_name: Power Factor a
+  '39':
+    type: float32
+    unit: ''
+    register_type: holding
+    name: power_factor_L2
+    display_name: Power Factor b
+  '41':
+    type: float32
+    unit: ''
+    register_type: holding
+    name: power_factor_L3
+    display_name: Power Factor c
+  '55':
+    type: float32
+    unit: Hz
+    register_type: holding
+    name: mains_frequency
+    display_name: Frequency
+  '57':
+    type: float32
+    unit: V
+    register_type: holding
+    name: average_voltage_ph_n
+    display_name: Average Voltage Vph-n
+  '59':
+    type: float32
+    unit: V
+    register_type: holding
+    name: average_voltage_ph_ph
+    display_name: Average Voltage Vph-ph
+  '61':
+    type: float32
+    unit: A
+    register_type: holding
+    name: average_current
+    display_name: Average Current
+  '63':
+    type: float32
+    unit: VA
+    register_type: holding
+    name: total_apparent_power
+    display_name: Total Apparent Power
+  '65':
+    type: float32
+    unit: W
+    register_type: holding
+    name: total_active_power
+    display_name: Total Active Power
+  '67':
+    type: float32
+    unit: var
+    register_type: holding
+    name: total_reactive_power
+    display_name: Total Reactive Power
+  '69':
+    type: float32
+    unit: ''
+    register_type: holding
+    name: total_power_factor
+    display_name: Total Power Factor
+  '801':
+    type: float64
+    unit: Wh
+    register_type: holding
+    obis_code: 1-0:1.8.0*255
+    name: active_energy_import
+    display_name: Active Energy Import Tariff 1
+  '809':
+    type: float64
+    unit: Wh
+    register_type: holding
+    obis_code: 1-0:2.8.0*255
+    name: active_energy_export
+    display_name: Active Energy Export Tariff 1
+  '817':
+    type: float64
+    unit: varh
+    register_type: holding
+    name: reactive_energy_import
+    display_name: Reactive Energy Import Tariff 1
+  '825':
+    type: float64
+    unit: varh
+    register_type: holding
+    name: reactive_energy_export
+    display_name: Reactive Energy Export Tariff 1

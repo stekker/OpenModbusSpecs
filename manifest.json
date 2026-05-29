@@ -1,7 +1,7 @@
 {
   "version": "0.3.0",
   "schema_version": "0.3.0",
-  "updated_at": "2026-02-12T14:44:34.404509+00:00",
+  "updated_at": "2026-05-29T13:03:27.487556+00:00",
   "description": "OpenModbus Device Registry - Stable device profiles",
   "devices": {
     "alfen_ng9xx": {
@@ -15,7 +15,7 @@
           "stability": "stable",
           "path": "registry/stable/alfen/ng9xx.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/alfen/ng9xx.yaml",
-          "published_at": "2026-02-12T14:44:34.382661+00:00",
+          "published_at": "2026-05-29T13:03:27.459962+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -40,7 +40,7 @@
           "stability": "stable",
           "path": "registry/stable/janitza/umg604.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/janitza/umg604.yaml",
-          "published_at": "2026-02-12T14:44:34.386188+00:00",
+          "published_at": "2026-05-29T13:03:27.464334+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -65,7 +65,7 @@
           "stability": "stable",
           "path": "registry/stable/janitza/umg605.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/janitza/umg605.yaml",
-          "published_at": "2026-02-12T14:44:34.389583+00:00",
+          "published_at": "2026-05-29T13:03:27.467620+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -90,7 +90,7 @@
           "stability": "stable",
           "path": "registry/stable/landis_gyr/e450.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/landis_gyr/e450.yaml",
-          "published_at": "2026-02-12T14:44:34.395148+00:00",
+          "published_at": "2026-05-29T13:03:27.472703+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
@@ -115,11 +115,36 @@
           "stability": "stable",
           "path": "registry/stable/peblar/home.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/peblar/home.yaml",
-          "published_at": "2026-02-12T14:44:34.398584+00:00",
+          "published_at": "2026-05-29T13:03:27.476018+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
               "role": "emeritus"
+            }
+          ],
+          "has_active_maintainer": true
+        }
+      ],
+      "latest": {
+        "stable": "1.0.0"
+      }
+    },
+    "siemens_pac3220": {
+      "manufacturer": "Siemens",
+      "model": "PAC3220",
+      "description": "SENTRON PAC3220 Power Monitoring Device",
+      "protocol": "modbus_tcp",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "stability": "stable",
+          "path": "registry/stable/siemens/pac3220.yaml",
+          "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/siemens/pac3220.yaml",
+          "published_at": "2026-05-29T13:03:27.482063+00:00",
+          "maintainers": [
+            {
+              "github": "mvz",
+              "role": "primary"
             }
           ],
           "has_active_maintainer": true
@@ -140,7 +165,7 @@
           "stability": "stable",
           "path": "registry/stable/victron/vm3p75ct.yaml",
           "url": "https://raw.githubusercontent.com/stekker/OpenModbusSpecs/main/registry/stable/victron/vm3p75ct.yaml",
-          "published_at": "2026-02-12T14:44:34.404402+00:00",
+          "published_at": "2026-05-29T13:03:27.487426+00:00",
           "maintainers": [
             {
               "github": "erikdebruijn",
